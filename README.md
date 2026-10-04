@@ -98,8 +98,8 @@ Whiptail barvy: proměnná `NEWT_COLORS` v `menu.sh`
 
 ## Vývoj / úpravy
 
-1. Otevři složku **TUIFedora** v Cursoru (File → Open Folder)
-2. Uprav `menu.sh` nebo `config/dialogrc`
+1. Naklonuj repozitář: `git clone https://github.com/pauliquib/Fedora-SecuriTUI.git && cd Fedora-SecuriTUI`
+2. Uprav `menu.sh` nebo `config/dialogrc` v libovolném editoru
 3. Test: `bash menu.sh` nebo `m` (po `setup.sh`)
 
 Po změně `config/dialogrc` stačí znovu spustit menu — soubor se automaticky synchronizuje.
