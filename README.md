@@ -7,6 +7,8 @@ Spuštění jedním písmenem: **`m`**
 Open source pod licencí **GPL-2.0-or-later** (`LICENSE`).
 Článek: <https://svec-elektro.cz/projekty/fedora-securitui/>
 
+*Veřejný snapshot — vývoj probíhá v privátním repozitáři, historie commitů je zde squashnutá.*
+
 ## Screenshoty
 
 | Hlavní menu | Recon & Scanning |
