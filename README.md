@@ -1,83 +1,83 @@
-# Fedora SecuriTUI — TUI Správce Nástrojů
+# Fedora SecuriTUI — TUI Tool Manager
 
-Interaktivní bash menu (`whiptail` / `dialog`) pro spouštění diagnostických, bezpečnostních a pentest nástrojů na **Fedora KDE**.
+An interactive bash menu (`whiptail` / `dialog`) for running diagnostic, security and pentest tools on **Fedora KDE**.
 
-Spuštění jedním písmenem: **`m`**
+Start it with one letter: **`m`**
 
-Open source pod licencí **GPL-2.0-or-later** (`LICENSE`).
-Článek: <https://svec-elektro.cz/projekty/fedora-securitui/>
+Open source under **GPL-2.0-or-later** (`LICENSE`).
+Article (Czech): <https://svec-elektro.cz/projekty/fedora-securitui/>
 
-*Veřejný snapshot — vývoj probíhá v privátním repozitáři, historie commitů je zde squashnutá.*
+*Public snapshot — development happens in a private repository; the commit history is squashed here.*
 
-## Screenshoty
+## Screenshots
 
-| Hlavní menu | Recon & Scanning |
+| Main menu | Recon & Scanning |
 |---|---|
-| ![Hlavní menu](docs/screenshots/fedora-stui-main.png) | ![Recon & Scanning](docs/screenshots/fedora-stui-recon.png) |
+| ![Main menu](docs/screenshots/fedora-stui-main.png) | ![Recon & Scanning](docs/screenshots/fedora-stui-recon.png) |
 
 ---
 
-## Struktura projektu
+## Project structure
 
 ```
 TUIFedora/
-├── menu.sh                  # hlavní TUI menu
-├── install-pentest-tools.sh # instalace CLI balíčků (dnf + pipx)
-├── setup.sh                 # alias m + symlinky do $HOME
+├── menu.sh                  # main TUI menu
+├── install-pentest-tools.sh # installs the CLI packages (dnf + pipx)
+├── setup.sh                 # alias m + symlinks into $HOME
 ├── config/
-│   └── dialogrc             # tmavé téma pro dialog
+│   └── dialogrc             # dark theme for dialog
 └── README.md
 ```
 
 ---
 
-## Rychlá instalace
+## Quick install
 
 ```bash
-# Rozbalte ZIP a přejděte do složky projektu
-cd ~/Downloads/TUIFedora   # nebo kam jste archiv rozbalili
+# Unpack the ZIP and go into the project folder
+cd ~/Downloads/TUIFedora   # or wherever you unpacked the archive
 
-# 1) Nainstalovat nástroje (volitelné, jednorázově)
+# 1) Install the tools (optional, one-off)
 bash install-pentest-tools.sh
 
-# 2) Nastavit alias m
+# 2) Set up the m alias
 bash setup.sh
 
-# 3) Spustit menu (nový terminál)
+# 3) Start the menu (in a new terminal)
 m
 ```
 
-Stažení: [svec-elektro.cz/projekty/tuifedora](https://svec-elektro.cz/projekty/tuifedora/)
+Download: [svec-elektro.cz/projekty/tuifedora](https://svec-elektro.cz/projekty/tuifedora/) (Czech)
 
 ---
 
-## Hlavní menu — kategorie
+## Main menu — categories
 
-| # | Sekce | Obsah |
+| # | Section | Contents |
 |---|--------|--------|
 | 1 | Recon & Scanning | nmap, masscan, arp-scan, tshark, tcpdump, TLS, DNS, Wireshark |
 | 2 | Web App Testing | ffuf, gobuster, whatweb, wafw00f, nuclei, subfinder, sqlmap |
-| 3 | Hesla & Autentizace | hydra, medusa, ncrack, john, hashcat |
-| 4 | Systémové procesy | strace, ltrace, GDB |
+| 3 | Passwords & Authentication | hydra, medusa, ncrack, john, hashcat |
+| 4 | System processes | strace, ltrace, GDB |
 | 5 | Reverse & Binary | radare2, checksec, binwalk, yara, strings, objdump |
 | 6 | Wireless | aircrack-ng suite, hcxpcapngtool |
-| 7 | Bezpečnost & Forenzní | lynis, Sleuthkit, AIDE, rkhunter, ClamAV, volatility3, foremost |
-| 8 | SMB / Impacket | smbclient, impacket skripty (lab) |
+| 7 | Security & Forensics | lynis, Sleuthkit, AIDE, rkhunter, ClamAV, volatility3, foremost |
+| 8 | SMB / Impacket | smbclient, impacket scripts (lab) |
 | 9 | Proxy / OpSec | proxychains, tor |
-| 10 | OSINT — osoby | holehe, maigret, sherlock, phoneinfoga, socid_extractor, cupp |
-| 11 | Síťové utility | ss, ncat, socat, curl, ip, nft, openssl, docker |
-| 12 | Skripty na pozadí | ps aux \| grep .sh/.py |
+| 10 | OSINT — people | holehe, maigret, sherlock, phoneinfoga, socid_extractor, cupp |
+| 11 | Network utilities | ss, ncat, socat, curl, ip, nft, openssl, docker |
+| 12 | Background scripts | ps aux \| grep .sh/.py |
 
 ---
 
-## Závislosti
+## Dependencies
 
-**TUI (povinné):**
+**TUI (required):**
 ```bash
-sudo dnf install -y dialog newt    # dialog preferován, whiptail záloha
+sudo dnf install -y dialog newt    # dialog is preferred, whiptail as a fallback
 ```
 
-**Pentest balíčky:** viz `install-pentest-tools.sh`
+**Pentest packages:** see `install-pentest-tools.sh`
 
 **OSINT (pipx / ~/.local/bin):**
 - holehe, maigret, phoneinfoga, socid_extractor, cupp
@@ -85,51 +85,51 @@ sudo dnf install -y dialog newt    # dialog preferován, whiptail záloha
 
 ---
 
-## Vzhled (tmavé téma)
+## Appearance (dark theme)
 
-- Pozadí terminálu a okna: **černé**
-- Text: **bílý**, okraje/titulky: **červené**
-- Aktivní položka menu: **bílá na červené**
-- Tlačítka (dialog): neaktivní = červený text, aktivní = **černý na bílém**
+- Terminal and window background: **black**
+- Text: **white**, borders and titles: **red**
+- Active menu item: **white on red**
+- Buttons (dialog): inactive = red text, active = **black on white**
 
-Téma: `config/dialogrc` → při startu kopírováno do `~/.config/menu/dialogrc`
+Theme: `config/dialogrc` is copied to `~/.config/menu/dialogrc` at startup
 
-Whiptail barvy: proměnná `NEWT_COLORS` v `menu.sh`
-
----
-
-## Vývoj / úpravy
-
-1. Naklonuj repozitář: `git clone https://github.com/pauliquib/Fedora-SecuriTUI.git && cd Fedora-SecuriTUI`
-2. Uprav `menu.sh` nebo `config/dialogrc` v libovolném editoru
-3. Test: `bash menu.sh` nebo `m` (po `setup.sh`)
-
-Po změně `config/dialogrc` stačí znovu spustit menu — soubor se automaticky synchronizuje.
+Whiptail colours: the `NEWT_COLORS` variable in `menu.sh`
 
 ---
 
-## Alias m
+## Development
 
-| Shell | Soubor |
+1. Clone the repository: `git clone https://github.com/pauliquib/Fedora-SecuriTUI.git && cd Fedora-SecuriTUI`
+2. Edit `menu.sh` or `config/dialogrc` in any editor
+3. Test: `bash menu.sh` or `m` (after `setup.sh`)
+
+After changing `config/dialogrc`, just restart the menu; the file is synchronised automatically.
+
+---
+
+## The m alias
+
+| Shell | File |
 |-------|--------|
-| Fish (výchozí) | `~/.config/fish/config.fish` |
+| Fish (default) | `~/.config/fish/config.fish` |
 | Bash | `~/.bashrc` |
 
-`setup.sh` nastaví alias na absolutní cestu k `menu.sh` v tomto projektu.
+`setup.sh` points the alias at the absolute path of `menu.sh` in this project.
 
 ---
 
-## Právní upozornění
+## Legal notice
 
-Nástroje pro pentest a OSINT používej **pouze** na systémech, kde máš **písemné povolení**, nebo ve **vlastním labu**. Autor menu nenese odpovědnost za zneužití.
+Use the pentest and OSINT tools **only** on systems where you have **written permission**, or in **your own lab**. The author of the menu is not responsible for misuse.
 
 ---
 
-## Řešení problémů
+## Troubleshooting
 
-| Problém | Řešení |
+| Problem | Solution |
 |---------|--------|
-| Menu se nespustí po instalaci dialog | Opraveno v `config/dialogrc` — spusť znovu `setup.sh` |
-| Světlé pozadí | Použij `dialog` (ne whiptail): `sudo dnf install dialog` |
-| Chybí nástroj v menu | `bash install-pentest-tools.sh` |
-| Alias m nefunguje | `bash setup.sh` + nový terminál |
+| The menu does not start after installing dialog | Fixed in `config/dialogrc` — run `setup.sh` again |
+| Light background | Use `dialog` (not whiptail): `sudo dnf install dialog` |
+| A tool is missing from the menu | `bash install-pentest-tools.sh` |
+| The m alias does not work | `bash setup.sh` and open a new terminal |
